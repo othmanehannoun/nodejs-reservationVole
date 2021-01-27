@@ -93,7 +93,8 @@
                             <th>date_arrive</th>
                             <th>lheure_depart</th>
                             <th>date_arrive</th>
-                            <th>nombre_places</th>
+                            <th>nombre_places_total</th>
+                            <th>nombre_places_reste</th>
                             <th>Actoin</th>
                         </thead>
                         <tbody>
@@ -106,6 +107,7 @@
                                     <td><%= vol.date_arrive %></td>
                                     <td><%= vol.lheure_depart%></td>
                                     <td><%= vol.lheure__arrive %></td>
+                                    <td><%= vol.nombre_place_initiall%></td>
                                     <td><%= vol.nombre_places%></td>
                                     <td>
                                         <a href="reserv/<%= vol.id %>" class="btn btn-sm btn-primary" >Reserver</a>

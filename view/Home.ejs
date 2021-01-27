@@ -99,26 +99,46 @@
                             <div class="col-md-3 col-lg-2">
                                 <div class="form-group">
                                     <label class="control-label"> Ville de Départ</label>
-                                    <select class="form-control" name="villdepart">
+                                    <!-- <select class="form-control" name="villdepart">
                                         <option value=""></option>
                                         <option value="safi">safi</option>
                                         <option value="casablanca">casablanca</option>
                                       <option value="maroc">maroc</option>
+                                      </select> -->
+                                      <!-- SATRT UPDATE -->
+                                      <select class="form-control" name="villdepart" required>
+                                        <option value=""></option>
+                                        <% vols.forEach(function(vol){ %>
+                                          <option value="<%= vol.ville_depart %>"><%= vol.ville_depart %></option>
+                                        <%});%>
                                       </select>
+                                      
                                       <!-- <input type="text" class="form-control" name="villdepart" id="villdepart"> -->
+                                      <!-- END UPDATE -->
 
                                 </div>
                             </div>
                             <div class="col-md-1 col-lg-2">
                                 <div class="form-group">
                                     <label class="control-label"> Ville d'Arrivé</label>
-                                    <select class="form-control" name="villarrive">
+                                    <!-- <select class="form-control" name="villarrive">
                                         <option value=""></option>
                                         <option value="safi">safi</option>
                                         <option value="casablanca">casablanca</option>
                                         <option value="canada">canada</option>
+                                      </select> -->
+
+                                      <!-- SATRT UPDATE -->
+                                      <select class="form-control" name="villarrive" required>
+                                        <option value=""></option>
+                                        <% vols.forEach(function(vol){ %>
+                                          <option value="<%= vol.ville_darrive %>"><%= vol.ville_darrive %></option>
+                                        <%});%>
                                       </select>
+                                      
                                       <!-- <input type="text" class="form-control" name="villarrive" id="villarrive"> -->
+                                      <!-- END UPDATE -->
+
                                 </div>
                             </div>
                             <!--

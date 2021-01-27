@@ -32,7 +32,18 @@ app.use(bodyParser.urlencoded({extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res)=> {
-    res.render('Home');
+    // res.render('Home');
+    //START UPDATE
+    // const { villdepart,villarrive} = req.body;
+    let sql0 = `SELECT * FROM vols WHERE nombre_places > 0`;
+    // console.log(sql);
+    let query = conn.query(sql0, (err, results) =>{
+        if(err) throw err;
+        res.render('Home',{
+            vols : results
+        });
+    });
+    //end update
 });
 
 
@@ -40,7 +51,7 @@ app.get('/', (req, res)=> {
 app.post('/search1/',(req, res) =>{
     // const userId = req.params.userId;
     const { villdepart,villarrive} = req.body;
-    let sql = `SELECT * FROM vols WHERE ville_depart = '${villdepart}' AND ville_darrive = '${villarrive}'`;
+    let sql = `SELECT * FROM vols WHERE ville_depart = '${villdepart}' AND ville_darrive = '${villarrive}' AND nombre_places > 0`;
     console.log(sql);
     let query = conn.query(sql, (err, results) =>{
         if(err) throw err;
@@ -110,7 +121,17 @@ app.post('/savereservation',(req,res) => {
             let sql2 = "INSERT INTO reservation Set ?";
             let query2 = conn.query(sql2, data2,(err, results) =>{
                 if(err) throw err;
-                res.redirect('/');
+                // res.redirect('/');
+                else{
+                    // UPDATE `vols` SET `nombre_places`=`nombre_places`-1 WHERE `id`= 1
+                    const id_vol = req.body.id_vol;
+                    // let sql = "UPDATE `users` SET name='"+req.body.name+"',email='"+req.body.email+"',phone_no='"+req.body.phone_no+"' WHERE id ="+userId;
+                    let sql3 = "UPDATE `vols` SET `nombre_places`=`nombre_places`-1 WHERE `id`="+id_vol;
+                    let query3 = conn.query(sql3,(err, results) =>{
+                        if(err) throw err;
+                        res.redirect('/');
+                    });
+                }
             });
             
         }
