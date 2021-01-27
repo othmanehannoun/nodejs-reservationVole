@@ -1,0 +1,43 @@
+
+
+ @media (max-width: 768px) {
+    .container{
+        margin-top: 20%;
+        
+    }
+  }
+
+section {
+    background-color: #a90010;
+    padding: 15px;
+}
+
+.logo{
+    font-size: 20px;
+    padding: 1px 5px;
+    font-weight: 600;
+}
+.bg{
+    font-size: 16px;
+    padding: 1px 5px;
+    font-weight: 500;
+}
+
+.header{
+    height: 84vh;
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+
+  label {
+    padding: 0px 0px 0px 5px;
+}
+
+.titre{
+    font-size: 18px;
+}
