@@ -17,7 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
    
     <!------ link css projet ------------>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 
    
@@ -60,7 +60,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link"href="#">Home</a>
+              <a class="nav-link"href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
@@ -73,56 +73,40 @@
       </div>
     </nav>
     
-    <!-- <form> -->
-            <div class="header">
-        <div class="container">
-            <div id="accordion">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    
-                    <form action="/savereservation" method="POST">
-                        <h2>ID VOLE :<%= id %></h2>
-                        <input type="hidden" name="id_vol" value="<%= id %>">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Prenom:</label>
-                            <input type="text" class="form-control" id="prenom" placeholder="Enter Prenom" name="prenom" required>
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
-                        </div>
-                        <div>
-                            <label for="phone_no">Phone:</label>
-                            <input type="text" class="form-control" id="phone_no" placeholder="Enter Phone number" name="phone_no" required>
-                        </div>
-                        <div>
-                            <label for="nombre_places1">Nombre places:</label>
-                            <input type="number" class="form-control" id="nombre_places1" placeholder="Enter Nombre places" name="nombre_places1" required>
-                        </div>
-                        <div>
-                            <!-- <label for="nombre_places">nombre ed plass:</label> -->
-                            <input type="hidden" name="nombre_places" value="1">
-                        </div>
-                        <div>
-                            <!-- <label for="date_de_reservation">date de reservation:</label> -->
-                            <input type="hidden" name="date_de_reservation" value="2021-01-27">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                  </div> 
-            </div>
-        </div>
-    </div> 
-    <!-- </form> -->
+
+    <div class="container">
+        <input type="hidden" name="hid" id="hid" value="<%= alertmsg  %>">
+    <div id="alrtrt">
+
+    </div>   
+
+    <center><h1 id="resultt"></h1></center>
+    <hr>
+    <h4>vole id : <%= volid.id %></h4>
+    <h4>nombre de places selectioner : <%= nombre_places_selected %></h4>
+    <h4>nombre de places rest sur le vol : <%= nombre_places_rest %></h4>
+    <h4>achkayen : <%= achkayen %></h4>
+
+
+
+
+    <script>
+        function myFunction() {
+            var hd = document.getElementById("hid").value;
+            if(hd == ''){
+                // alert("9awetiha");
+                document.getElementById("alrtrt").innerHTML = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Verifier le nombre de place selectioner!</strong> le nombre total de place rest est : <%= nombre_places_rest %> .<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                
+                document.getElementById("resultt").innerHTML = "Action refusée";
+            }else{
+                // alert("kaaayen");
+                document.getElementById("alrtrt").innerHTML = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Vole reserve </strong> Avec succes.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                document.getElementById("resultt").innerHTML = "la confirmation de la réservation sera complétée avec le paiement ";
+            }
+          
+        }
+    </script>
+    </div>
 
 
 </body>
