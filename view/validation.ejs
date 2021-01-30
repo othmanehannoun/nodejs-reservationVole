@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!----- link CSS Bootstrap ------------>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -22,8 +22,7 @@
 
    
 </head>
-<body   onload="myFunction()">
-    
+<body>
     <section>
       <div class="container-fluid">
       <div class="row top-bar">
@@ -60,7 +59,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link"href="/">Home</a>
+              <a class="nav-link"href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
@@ -74,52 +73,26 @@
     </nav>
     
 
-    <div class="container">
-        <input type="hidden" name="hid" id="hid" value="<%= alertmsg  %>">
-    <div id="alrtrt">
+    <div class="header">
+       
 
-    </div>   
-
-    <center><h1 id="resultt"></h1></center>
-    <hr>
-    <h4>vole id : <%= volid.id %></h4>
-    <h4>nombre de places selectioner : <%= nombre_places_selected %></h4>
-    <h4>nombre de places rest sur le vol : <%= nombre_places_rest %></h4>
-    <h4>achkayen : <%= achkayen %></h4>
-    <div id="div_valid_mail">
-      
-    </div>
-
-
-
-
-    <script>
-        function myFunction() {
-            var hd = document.getElementById("hid").value;
-            if(hd == ''){
-                // alert("9awetiha");
-                document.getElementById("alrtrt").innerHTML = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Verifier le nombre de place selectioner!</strong> le nombre total de place rest est : <%= nombre_places_rest %> .<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                
-                document.getElementById("resultt").innerHTML = "Action refusée";
-            }else{
-                // alert("kaaayen");
-                document.getElementById("alrtrt").innerHTML = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Vole reserve </strong> Avec succes.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                document.getElementById("resultt").innerHTML = "la confirmation de la réservation sera complétée avec le paiement ";
-                document.getElementById("div_valid_mail").innerHTML = "<center><a href='/validation' style='background:#f96b13;border:1px solid #f96b13;text-decoration:none;padding:20px 30px;color:#ffffff;border-radius:4px;display:inline-block;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:20px'>valider le paiement</a></center>";
-            }
+        <div class="container">
           
-        }
-    </script>
-    </div>
+          
+            <center>
+                <h1>Verifier Votre Email</h1>
+                <a href='https://mail.google.com/' style='background:#f96b13;border:1px solid #f96b13;text-decoration:none;padding:20px 30px;color:#ffffff;border-radius:4px;display:inline-block;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:20px'>valider le paiement</a>
+            </center>
+        </div>
 
-
+    </div> 
+      
 </body>
 
-<script src="../js/main.js"></script>
+<script src="js/main.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
