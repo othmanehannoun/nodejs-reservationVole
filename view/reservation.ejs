@@ -74,7 +74,7 @@
     </nav>
     
     <!-- <form> -->
-            <div class="header">
+            <div class="header_g">
         <div class="container">
             <div id="accordion">
                 <div class="row">
@@ -84,9 +84,12 @@
                     </div>
                 </div>
                 <div class="container">
+                  <div class="col-md-5">
+                    <div class="form-area"> 
                     
                     <form action="/savereservation" method="POST">
-                        <h2>ID VOLE :<%= id %></h2>
+                      <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+                        <input type="hidden" value="<%= id %>"></h2>
                         <input type="hidden" name="id_vol" value="<%= id %>">
                         <div class="form-group">
                             <label for="name">Name:</label>
@@ -119,6 +122,9 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                   </div> 
+                  </div>
+                </div>
+                
             </div>
         </div>
     </div> 

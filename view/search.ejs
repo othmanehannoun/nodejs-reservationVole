@@ -73,63 +73,48 @@
       </div>
     </nav>
     
-    <form>
-            <div class="header">
-        <div class="container">
-            <div id="accordion">
+      <div class="header_search">
+      
+        <div class="table-wrapper">
+            <div class="table-title">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                        </div>
-                    </div>
+                    <div class="col-sm-8"><h2>Result For  <b>Search</b></h2></div>
                 </div>
-                <div class="container">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <th>id</th>
-                            <th>ville_depart</th>
-                            <th>ville_darrive</th>
-                            <th>date_depart</th>
-                            <th>date_arrive</th>
-                            <th>lheure_depart</th>
-                            <th>date_arrive</th>
-                            <th>nombre_places_total</th>
-                            <th>nombre_places_reste</th>
-                            <th>Actoin</th>
-                        </thead>
-                        <tbody>
-                            <% var exist = 0 %>
-                            <% vols.forEach(function(vol){exist = 1 %>
-                                <tr>
-                                    <td><%= vol.id %> <input type="hidden" name="idya" value="<%= vol.id %>"></td>
-                                    <td><%= vol.ville_depart %></td>
-                                    <td><%= vol.ville_darrive%></td>
-                                    <td><%= vol.date_depart %></td>
-                                    <td><%= vol.date_arrive %></td>
-                                    <td><%= vol.lheure_depart%></td>
-                                    <td><%= vol.lheure__arrive %></td>
-                                    <td><%= vol.nombre_place_initiall%></td>
-                                    <td><%= vol.nombre_places%></td>
-                                    <td>
-                                        <a href="reserv/<%= vol.id %>" class="btn btn-sm btn-primary" >Reserver</a>
-                                        <!-- <input type="submit" class="btn btn-sm btn-primary" value="Reserver"> -->
-                                        <!-- <a href="/reserv" class="btn btn-sm btn-primary" >Reserver</a> -->
-                                    </td>
-                                </tr>
-                            <%});%>
-                            <% if(exist == 0){ %>
-                              <tr>
-                                <td colspan="10"><center>Aucun vol disponible</center></td>
-                              </tr>
-                            <% } %>
-                              
-                        </tbody>
-                    </table>
-                  </div> 
             </div>
-        </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Depart</th>
+                      <th>d'ariiver</th>
+                      <th>l'huere depart</th>
+                      <th>l'huere d'arriver</th>
+                      <th>date depart</th>
+                      <th>date d'arriver</th>
+                      <th>places desponible</th>
+                      <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% vols.forEach(function(vol){ %>
+                    <tr>
+                      <td><%= vol.id %> <input type="hidden" name="idya" value="<%= vol.id %>"></td>
+                      <td><%= vol.ville_depart %></td>
+                      <td><%= vol.ville_darrive%></td>
+                      <td><%= vol.date_depart %></td>
+                      <td><%= vol.date_arrive %></td>
+                      <td><%= vol.lheure_depart%></td>
+                      <td><%= vol.lheure__arrive %></td>
+                      <td><%= vol.nombre_places%></td>
+      
+                      <td><a href="reservation/<%= vol.id %>" class="btn btn-sm btn-primary" >Reserver</a>
+                      </td>
+                    </tr>
+                    <%});%>
+                </tbody>
+            </table>
+        </div>   
     </div> 
-    </form>
 </body>
 
 <script src="js/main.js"></script>

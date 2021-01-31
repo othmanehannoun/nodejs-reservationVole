@@ -74,7 +74,7 @@
     </nav>
     
 
-    <div class="container">
+    <div class="container" style="margin-top: 45px;">
         <input type="hidden" name="hid" id="hid" value="<%= alertmsg  %>">
     <div id="alrtrt">
 
@@ -82,14 +82,11 @@
 
     <center><h1 id="resultt"></h1></center>
     <hr>
-    <h4>vole id : <%= volid.id %></h4>
-    <h4>nombre de places selectioner : <%= nombre_places_selected %></h4>
-    <h4>nombre de places rest sur le vol : <%= nombre_places_rest %></h4>
-    <h4>achkayen : <%= achkayen %></h4>
-    <div id="div_valid_mail">
-      
-    </div>
 
+    <dir id="infoVol"></dir>
+    
+
+    
 
 
 
@@ -99,13 +96,17 @@
             if(hd == ''){
                 // alert("9awetiha");
                 document.getElementById("alrtrt").innerHTML = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Verifier le nombre de place selectioner!</strong> le nombre total de place rest est : <%= nombre_places_rest %> .<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                
                 document.getElementById("resultt").innerHTML = "Action refusée";
+             
+
             }else{
                 // alert("kaaayen");
                 document.getElementById("alrtrt").innerHTML = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Vole reserve </strong> Avec succes.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                document.getElementById("resultt").innerHTML = "la confirmation de la réservation sera complétée avec le paiement ";
-                document.getElementById("div_valid_mail").innerHTML = "<center><a href='/validation' style='background:#f96b13;border:1px solid #f96b13;text-decoration:none;padding:20px 30px;color:#ffffff;border-radius:4px;display:inline-block;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:20px'>valider le paiement</a></center>";
+                document.getElementById("resultt").innerHTML = " la confirmation de la réservation sera complétée avec le paiement";
+                document.getElementById("infoVol").innerHTML = '<a href="/confirmer/<%= id_user %>/<%= volid.id %>/<%= nombre_places_selected %> " class="btn btn-outline-danger">confirmer</a>'
+
+                
+                // la confirmation de la réservation sera complétée avec le paiement
             }
           
         }
