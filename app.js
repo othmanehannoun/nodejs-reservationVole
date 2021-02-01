@@ -33,6 +33,11 @@ app.use(require('./routes/reservation'));
 app.use(require('./routes/sendMail'));
 app.use(require('./routes/succeeded'));
 
+app.get('*', function(req, res){
+    // res.status(404).send('what???');
+    res.render('error');
+});
+
 
 
 
