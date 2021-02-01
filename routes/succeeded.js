@@ -4,10 +4,11 @@ const router = express.Router();
 
 const conn = require('../db/connection.js');
 
-router.get('/succeeded/:userId/:idVol/:nbrplace',(req, res) => {
+router.get('/succeeded/:userId/:idVol/:nbrplace/:idReservation',(req, res) => {
     const userId = req.params.userId;
     const idVol = req.params.idVol;
     const nbrplace = req.params.nbrplace;
+    const idReservation = req.params.idReservation;
     let sql = `Select * from users where id = ${userId}`;
     let query = conn.query(sql,(err, result) => {
         if(err) throw err;
@@ -17,7 +18,8 @@ router.get('/succeeded/:userId/:idVol/:nbrplace',(req, res) => {
             prenom: result[0]['prenom'],
             email: result[0]['email'],
             telephone: result[0]['telephone'],
-            nombreP : nbrplace
+            nombreP : nbrplace,
+            idReservation : idReservation
         })
         });
 

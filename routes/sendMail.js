@@ -8,10 +8,11 @@ const  nodemailer = require('nodemailer');
 const conn = require('../db/connection.js');
 
 
-router.get('/confirmer/:userId/:idVol/:nbrplace',(req, res) => {
+router.get('/confirmer/:userId/:idVol/:nbrplace/:idReservation',(req, res) => {
     const userId = req.params.userId;
     const idVol = req.params.idVol;
     const nbrplace = req.params.nbrplace;
+    const idReservation = req.params.idReservation;
 
     let sql = `Select email from users where id = ${userId}`;
     let query = conn.query(sql,(err, result) => {
@@ -66,7 +67,7 @@ router.get('/confirmer/:userId/:idVol/:nbrplace',(req, res) => {
                     </td></tr>
                     <tr><td align="center">
                       <div style="line-height: 24px;">
-                        <a href='http://localhost:2000/succeeded/`+userId+`/`+idVol+`/`+nbrplace+`' target="_blank" font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
+                        <a href='http://localhost:2000/succeeded/`+userId+`/`+idVol+`/`+nbrplace+`/`+idReservation+`' target="_blank" font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
                           <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
                           </font>Clique ici</a>
                       </div>
