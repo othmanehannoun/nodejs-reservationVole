@@ -62,12 +62,12 @@
             <li class="nav-item">
               <a class="nav-link"href="/">Home</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -84,6 +84,7 @@
     <hr>
 
     <dir id="infoVol"></dir>
+    <br>
     
 
     
@@ -103,7 +104,8 @@
                 // alert("kaaayen");
                 document.getElementById("alrtrt").innerHTML = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Vole reserve </strong> Avec succes.<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                 document.getElementById("resultt").innerHTML = " la confirmation de la réservation sera complétée avec le paiement";
-                document.getElementById("infoVol").innerHTML = '<a href="/confirmer/<%= id_user %>/<%= volid.id %>/<%= nombre_places_selected %> " class="btn btn-outline-danger">confirmer</a>'
+                // document.getElementById("infoVol").innerHTML = "<center><a href='/confirmer2/<%= id_user %>' style='background:#f96b13;border:1px solid #f96b13;text-decoration:none;padding:20px 30px;color:#ffffff;border-radius:4px;display:inline-block;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:20px'>valider le paiement</a></center>";
+                document.getElementById("infoVol").innerHTML = '<br><br><center><a href="/confirmer/<%= id_user %>/<%= volid.id %>/<%= nombre_places_selected %> " class="btn btn-outline-danger" style="background:#f96b13;border:1px solid #f96b13;text-decoration:none;padding:20px 30px;color:#ffffff;border-radius:4px;display:inline-block;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:20px">confirmer</a></center>'
 
                 
                 // la confirmation de la réservation sera complétée avec le paiement

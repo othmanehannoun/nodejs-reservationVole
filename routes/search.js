@@ -8,8 +8,28 @@ const conn = require('../db/connection.js');
 // recherch vols
 router.post('/search1',(req, res) =>{
     // const userId = req.params.userId;
-    const { villdepart, villarrive, date_vole, time_vole} = req.body;
-    let sql = `SELECT * FROM vols WHERE ville_depart = '${villdepart}' AND ville_darrive = '${villarrive}' AND date_depart = '${date_vole}' AND lheure_depart = '${time_vole}' AND nombre_places > 0`;
+    const { villdepart,villarrive,dateDepart,heureDepart,heureRoteur,nombreplacesherch} = req.body;
+
+    let sql = `SELECT * FROM vols WHERE nombre_places > 0 `;
+    if(villdepart != ''){
+        sql +=` AND ville_depart = '${villdepart}' `;
+    }
+    if(villarrive !=  ''){
+        sql +=` AND ville_darrive = '${villarrive}' `;
+    }
+    if(dateDepart !=  ''){
+        sql +=` AND date_depart = '${dateDepart}' `;
+    }
+    if(heureDepart !=  ''){
+        sql +=` AND lheure_depart = '${heureDepart}' `;
+    }
+    if(heureRoteur !=  ''){
+        sql +=` AND lheure__arrive = '${heureRoteur}' `;
+    }
+    if(nombreplacesherch !=  ''){
+        sql +=` AND nombre_places + 1 > '${nombreplacesherch}' `;
+    }
+
     console.log(sql);
     let query = conn.query(sql, (err, results) =>{
         if(err) throw err;
